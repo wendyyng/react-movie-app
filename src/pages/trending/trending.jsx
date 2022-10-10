@@ -3,9 +3,10 @@ import { useState } from 'react';
 import axios from 'axios';
 import SingleContent from '../../components/single.content/single.content.component';
 import styled from 'styled-components'
+import CustomPagination from '../../components/pagination/custom.pagination.component';
 
 const TrendingContainer = styled.div`
-   display: flex;
+    display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
 `
@@ -45,6 +46,7 @@ const Trending = () => {
             />
       ))
     }  
+    <CustomPagination setPage={setPage} />
     </TrendingContainer>
 
   )
