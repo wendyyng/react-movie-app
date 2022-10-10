@@ -5,7 +5,7 @@ import SingleContent from '../../components/single.content/single.content.compon
 import styled from 'styled-components'
 import CustomPagination from '../../components/pagination/custom.pagination.component';
 
-const TrendingContainer = styled.div`
+export const PageContainer = styled.div`
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -31,7 +31,7 @@ const Trending = () => {
   }, [page])
 
   return (
-    <TrendingContainer>
+    <PageContainer>
     {
       content && 
       content.map((c) => (
@@ -47,7 +47,7 @@ const Trending = () => {
       ))
     }  
     <CustomPagination setPage={setPage} />
-    </TrendingContainer>
+    </PageContainer>
 
   )
 }
