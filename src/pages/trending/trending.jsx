@@ -31,6 +31,8 @@ const Trending = () => {
   }, [page])
 
   return (
+    <div>
+      <span className="pageTitle">Trending Today</span>
     <PageContainer>
     {
       content && 
@@ -48,6 +50,7 @@ const Trending = () => {
     }  
     <CustomPagination setPage={setPage} />
     </PageContainer>
+    </div>
 
   )
 }

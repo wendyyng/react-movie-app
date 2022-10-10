@@ -6,6 +6,8 @@ import SingleContent from '../../components/single.content/single.content.compon
 import CustomPagination from '../../components/pagination/custom.pagination.component'
 import Genres from '../../components/genres/genres.component'
 import { useGenre } from '../../hooks/useGenre'
+import styled from 'styled-components'
+
 const Movies = () => {
  
   const [genres, setGenres] = useState([]);
@@ -31,6 +33,7 @@ const Movies = () => {
 
   return (
     <PageContainer>
+      <span className="pageTitle">Discover Movies</span>
       <Genres 
       selectedGenres={selectedGenres} 
       setSelectedGenres={setSelectedGenres}
@@ -49,7 +52,7 @@ const Movies = () => {
           poster={c.poster_path}
           title={c.title || c.name}
           date={c.first_air_date || c.release_date}
-          media_type={c.media_type}
+          media_type="movie"
           vote_average={c.vote_average}
             />
       ))
