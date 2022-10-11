@@ -16,7 +16,7 @@ const PaginationConatiner = styled.div`
     justify-content: center;
     margin-top: 1em;
 `
-const CustomPagination = ({setPage, numOfPages = 10}) => {
+const CustomPagination = ({setPage, numOfPages}) => {
 
     const handlePageChange = (page) => {
         setPage(page);

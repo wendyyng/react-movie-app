@@ -16,7 +16,7 @@ import { Container } from '@mui/material';
 function App() {
   return (
     <>
-              <BrowserRouter> 
+     <BrowserRouter> 
      <Header />
         <div className="app">
 
@@ -29,7 +29,7 @@ function App() {
 
         </div>
          <Navigation />
-              </BrowserRouter>
+    </BrowserRouter>
     </>
 
   );

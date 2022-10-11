@@ -14,6 +14,7 @@ export const PageContainer = styled.div`
 const Trending = () => {
   const [page, setPage] = useState(1);
   const [content, setContent] = useState([]);
+const [numOfPages, setNumofPages] = useState();
 
   const fetchTrending = async () => {
     
@@ -22,6 +23,7 @@ const Trending = () => {
     );
       console.log(data)
     setContent(data.results);
+    setNumofPages(data.total_pages);
   }
 
   useEffect(() => {
@@ -48,7 +50,9 @@ const Trending = () => {
             />
       ))
     }  
-    <CustomPagination setPage={setPage} />
+      {
+      numOfPages > 1 && (<CustomPagination setPage={setPage} numOfPages={numOfPages}/>)
+    }
     </PageContainer>
     </div>
 

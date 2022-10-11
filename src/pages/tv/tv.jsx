@@ -56,7 +56,7 @@ const Tv = () => {
             />
       ))
     }  
-    <CustomPagination setPage={setPage} />
+    <CustomPagination setPage={setPage} numOfPages={numOfPages}/>
     </PageContainer>
   )
 }
