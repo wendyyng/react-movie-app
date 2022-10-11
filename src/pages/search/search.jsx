@@ -14,6 +14,7 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select'; 
+import Spinner from '../../components/spinner/spinner.component';
 
 const darkTheme = createTheme({
     palette: {
@@ -22,8 +23,9 @@ const darkTheme = createTheme({
 })
 
 const SearchBar = styled.div`
-  display: flex;
-   margin: 15px 0;
+    display: flex;
+    justify-content: center;
+    margin: 15px 0;
 `
 
 const Search = () => {
@@ -35,6 +37,7 @@ const Search = () => {
   const [result, setResult] = useState("");
   const [type, setType] = useState("movie");
   const [singleType, setSingleType] = useState("")
+  // const [isLoading, setIsLoading] = useState(false);
 
   const handleChange = (event) => {
     setType(event.target.value);
@@ -42,7 +45,6 @@ const Search = () => {
 
   const fetchSearch = async () => {
     setSingleType(type)
-
     try {
       const { data } = await axios.get(
         `https://api.themoviedb.org/3/search/${type === "movie" ? "movie" : "tv"}?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=en-US&query=${searchText}&page=${page}&include_adult=false`
@@ -52,6 +54,7 @@ const Search = () => {
         setContent([])
         setNumofPages()
       }else{
+        setResult("")
         setContent(data.results)
         setNumofPages(data.total_pages);
       }
@@ -59,21 +62,28 @@ const Search = () => {
     } catch (error){
       console.log(searchText)
       console.error(error);
+    } finally {
+      // setIsLoading(false)
     }
   }
 
   useEffect(() => {
+    // setIsLoading(true);
      window.scroll(0, 0);
     fetchSearch();
     // eslint-disable-next-line
   }, [page])
+
+  // if (isLoading){
+  //   setResult(<Spinner />)
+  // }
 
   return (
     <div>
       <ThemeProvider theme={darkTheme}>
            <span className="pageTitle">Search for Movies or TV Series</span>
         <SearchBar>
-           <TextField id="outlined-basic" label="Search by Title" variant="outlined" style={{ flex: 1 }} onChange={(e) => setSearchText(e.target.value)}/>
+           <TextField id="outlined-basic" label="Search by Title" variant="outlined" onChange={(e) => setSearchText(e.target.value)}/>
            <FormControl>
         <InputLabel id="demo-simple-select-label">Select Type</InputLabel>
         <Select
@@ -82,6 +92,8 @@ const Search = () => {
           value={type}
           label="Type"
           onChange={handleChange}
+          sx={{ ml: 2, width: 200}}
+          MenuProps={{ style: { maxWidth: 0, maxHeight: 300, position: 'absolute', }, disableScrollLock: true, }}
         >
           <MenuItem value="movie">Movies</MenuItem>
           <MenuItem value="tv">TV Series</MenuItem>
