@@ -25,8 +25,8 @@ const style = {
     //   border: '2px solid #000',
     boxShadow: 24,
     // p: 4,
-    // width: "70%",
-    // height: "70%",
+    width: "50%",
+    height: "50%",
     // backgroundColor: "#fff",
     // border: "1px solid #282c34",
     // borderRadius: 10,
@@ -38,7 +38,7 @@ const style = {
 
 const paperStyle = {
     // width: "80%",
-    height: "80%",
+    // height: "80%",
     backgroundColor: "#000000",
     // border: "1px solid #282c34",
     borderRadius: 10,
