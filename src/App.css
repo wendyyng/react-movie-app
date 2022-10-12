@@ -1,14 +1,16 @@
 @import url('http://fonts.cdnfonts.com/css/arcadia');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
 * {
   scroll-behavior: smooth;
+  font-family: 'Quicksand', sans-serif;
 }
 
 .app {
   min-height: 100vh;
   background: rgb(2, 0, 36);
-  background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 35%, rgba(0, 212, 255, 1) 100%);
+  background-image: linear-gradient(to right, #a3a0a0 0%, black 100%);
   color: white;
-  padding-top: 100px;
+  padding-top: 20px;
   padding-bottom: 70px;
 }
 
@@ -22,7 +24,7 @@
   text-transform: uppercase;
   display: flex;
   justify-content: center;
-  font-family: 'Arcadia', sans-serif;
+  font-family: 'Quicksand', sans-serif;
   font-size: 2vw;
   padding: 4px;
   border-radius: 50px;
@@ -33,4 +35,23 @@
   .pageTitle {
     font-size: 6.4vw;
   }
+}
+
+    html {
+      overflow-y: auto;
+      overflow-x: hidden;
+    }
+  
+    body,
+    #root {
+      height: 100%;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+.page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

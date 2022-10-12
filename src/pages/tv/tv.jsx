@@ -31,7 +31,7 @@ const Tv = () => {
   }, [genreforURL, page])
 
   return (
-    <PageContainer>
+    <div className="page">
       <span className="pageTitle">Discover TV Series</span>
       <Genres 
       selectedGenres={selectedGenres} 
@@ -42,6 +42,7 @@ const Tv = () => {
       type="tv"
 
       />
+    <PageContainer>
     {
       content && 
       content.map((c) => (
@@ -56,8 +57,9 @@ const Tv = () => {
             />
       ))
     }  
-    <CustomPagination setPage={setPage} numOfPages={numOfPages}/>
     </PageContainer>
+    <CustomPagination setPage={setPage} numOfPages={numOfPages}/>
+    </div>
   )
 }
 

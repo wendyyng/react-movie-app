@@ -14,11 +14,13 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select'; 
-import Spinner from '../../components/spinner/spinner.component';
 
 const darkTheme = createTheme({
     palette: {
-        mode: "dark"
+        mode: "dark",
+        primary: {
+          main: '#e0e0e0'
+        }
     }
 })
 
@@ -62,24 +64,18 @@ const Search = () => {
     } catch (error){
       console.log(searchText)
       console.error(error);
-    } finally {
-      // setIsLoading(false)
-    }
+    } 
   }
 
   useEffect(() => {
-    // setIsLoading(true);
+
      window.scroll(0, 0);
     fetchSearch();
     // eslint-disable-next-line
   }, [page])
 
-  // if (isLoading){
-  //   setResult(<Spinner />)
-  // }
-
   return (
-    <div>
+    <div className='page'>
       <ThemeProvider theme={darkTheme}>
            <span className="pageTitle">Search for Movies or TV Series</span>
         <SearchBar>
@@ -126,10 +122,10 @@ const Search = () => {
       :
       <div>{result}</div>
     }  
+      </PageContainer>
     {
       numOfPages > 1 && (<CustomPagination setPage={setPage} numOfPages={numOfPages}/>)
     }
-      </PageContainer>
     </div>
   )
 }

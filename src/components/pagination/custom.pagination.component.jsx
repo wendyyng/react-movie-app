@@ -6,7 +6,10 @@ import styled from 'styled-components';
 
 const darkTheme = createTheme({
     palette: {
-        mode: "dark"
+        mode: "dark",
+        primary: {
+            main: '#9e9e9e',
+        }
     }
 })
 

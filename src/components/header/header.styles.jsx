@@ -4,7 +4,7 @@ export const HeaderContainer = styled.span`
     @import url('http://fonts.cdnfonts.com/css/arcade-classic');
     width: 100%;
     cursor: pointer;
-    position: fixed;
+    // position: fixed;
     display: flex;
     justify-content: center;
     text-transform: uppercase;

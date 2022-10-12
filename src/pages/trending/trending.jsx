@@ -6,15 +6,15 @@ import styled from 'styled-components'
 import CustomPagination from '../../components/pagination/custom.pagination.component';
 
 export const PageContainer = styled.div`
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    justify-content: center;
 `
 
 const Trending = () => {
   const [page, setPage] = useState(1);
   const [content, setContent] = useState([]);
-const [numOfPages, setNumofPages] = useState();
+  const [numOfPages, setNumofPages] = useState();
 
   const fetchTrending = async () => {
     
@@ -33,7 +33,7 @@ const [numOfPages, setNumofPages] = useState();
   }, [page])
 
   return (
-    <div>
+    <div className='page'>
       <span className="pageTitle">Trending Today</span>
     <PageContainer>
     {
@@ -50,10 +50,10 @@ const [numOfPages, setNumofPages] = useState();
             />
       ))
     }  
+    </PageContainer>
       {
       numOfPages > 1 && (<CustomPagination setPage={setPage} numOfPages={numOfPages}/>)
     }
-    </PageContainer>
     </div>
 
   )

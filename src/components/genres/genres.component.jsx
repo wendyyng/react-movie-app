@@ -1,6 +1,17 @@
 import axios from 'axios'
 import React, { useEffect } from 'react'
 import { Chip } from '@mui/material'
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#424242',
+    },
+    secondary: {
+      main: '#e0e0e0',
+    },
+  }})
 
 const Genres = (
   {
@@ -46,13 +57,14 @@ const Genres = (
   }, [])
 
   return (
+    <ThemeProvider theme={theme}>
     <div style={{ padding: "10px", margin: "5px"}}>
       {selectedGenres.length > 0 && selectedGenres.map((genre) => (
         <Chip
           style={{ margin: 2 }}
           label={genre.name}
           key={genre.id}
-          color="primary"
+          color="secondary"
           clickable
           size="small"
           onDelete={() => handleRemove(genre)}
@@ -66,11 +78,12 @@ const Genres = (
           clickable
           size="small"
           onClick={() => handleAdd(genre)}
-          variant="filled"
-          color="secondary"
+          // variant="filled"
+          color="primary"
         />
       ))}
     </div>
+    </ThemeProvider>
   )
 }
 
