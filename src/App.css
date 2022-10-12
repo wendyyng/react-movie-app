@@ -55,3 +55,8 @@
   flex-direction: column;
   align-items: center;
 }
+
+input:-webkit-autofill,
+.MuiInputBase-root:has(> input:-webkit-autofill) {
+  background-color: none;
+}

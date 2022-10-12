@@ -82,7 +82,11 @@ const Search = () => {
       <ThemeProvider theme={darkTheme}>
            <span className="pageTitle">Search for Movies or TV Series</span>
         <SearchBar>
-           <TextField id="outlined-basic" label="Search by Title" onChange={(e) => setSearchText(e.target.value)}/>
+           <TextField  
+           id="outlined-basic" 
+           label="Search by Title" 
+           onChange={(e) => setSearchText(e.target.value)}
+           />
            <FormControl>
         <InputLabel id="demo-simple-select-label">Select Type</InputLabel>
         <Select
