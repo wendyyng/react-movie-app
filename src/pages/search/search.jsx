@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react'
 import { createTheme, ThemeProvider } from '@mui/material/styles'
-import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import styled from 'styled-components';
 import { Button } from '@mui/material';
@@ -13,7 +12,7 @@ import { PageContainer } from '../trending/trending'
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
-import Select, { SelectChangeEvent } from '@mui/material/Select'; 
+import Select from '@mui/material/Select'; 
 
 const darkTheme = createTheme({
     palette: {

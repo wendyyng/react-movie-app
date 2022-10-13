@@ -6,7 +6,6 @@ import SingleContent from '../../components/single.content/single.content.compon
 import CustomPagination from '../../components/pagination/custom.pagination.component'
 import Genres from '../../components/genres/genres.component'
 import { useGenre } from '../../hooks/useGenre'
-import styled from 'styled-components'
 
 const Movies = () => {
  
@@ -18,7 +17,10 @@ const Movies = () => {
   const genreforURL = useGenre(selectedGenres)
 
 
-  const fetchMovies = async () => {
+
+
+  useEffect(() => {
+      const fetchMovies = async () => {
     const { data } = await axios.get(
       `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}&with_genres=${genreforURL}`
     )
@@ -26,9 +28,7 @@ const Movies = () => {
     setContent(data.results);
     setNumofPages(data.total_pages);
   }
-
-  useEffect(() => {
-    fetchMovies();
+  fetchMovies();
   }, [genreforURL, page])
 
   return (

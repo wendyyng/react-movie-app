@@ -5,13 +5,13 @@ import Trending from './pages/trending/trending';
 import Movies from './pages/movies/movies';
 import Tv from './pages/tv/tv';
 import Search from './pages/search/search';
-import { render } from "react-dom";
+
 import {
   BrowserRouter,
   Routes,
   Route,
 } from "react-router-dom";
-import { Container } from '@mui/material';
+
 
 function App() {
   return (
