@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const HeaderContainer = styled.span`
-    @import url('http://fonts.cdnfonts.com/css/arcade-classic');
+    @import url('https://fonts.cdnfonts.com/css/arcade-classic');
     width: 100%;
     cursor: pointer;
     // position: fixed;
